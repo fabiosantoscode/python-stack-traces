@@ -1,5 +1,6 @@
 from __future__ import print_function
 import os
+import trace
 
 
 if __name__ == '__main__':
@@ -9,6 +10,7 @@ if __name__ == '__main__':
 
     var_outside_all = 3
     another_thing = 1
+    @trace.trace_here
     def outer_func():
         var_in_outer_func = {'here': 'is', 'a': dict()}
         def inner_func():

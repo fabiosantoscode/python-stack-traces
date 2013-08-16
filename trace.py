@@ -104,3 +104,11 @@ def main():
 if __name__ == '__main__':
     main()
 
+def trace_here(f):
+    def w(*args, **kw):
+        oldhoook = sys.excepthook
+        sys.excepthook = _exception_handler
+        f(*args, **kw)
+        sys.excepthook = oldhook
+    return w
+
